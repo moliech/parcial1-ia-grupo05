@@ -68,9 +68,7 @@
 
 ### Pregunta Clave de Calidad de Datos:
 * **¿Hay algún valor en los datos que le parezca sospechoso o inconsistente? ¿Cómo afecta el análisis si no se corrige?**  
-* 
-  Sí. El valor de 15.000 µg/m³ registrado el 4 de enero de 2026 resulta altamente sospechoso, ya que es muy diferente al resto de los registros, que se encuentran aproximadamente entre 12 y 25 µg/m³.
-  
+  * Sí. El valor de 15.000 µg/m³ registrado el 4 de enero de 2026 resulta altamente sospechoso, ya que es muy diferente al resto de los registros, que se encuentran aproximadamente entre 12 y 25 µg/m³.
   Si este valor se mantiene, altera significativamente los resultados estadísticos, aumentando el promedio hasta 1.381,09 µg/m³ y la desviación estándar hasta 4.307,72 µg/m³. Esto podría llevar a interpretar los datos como si existiera un nivel de contaminación extremadamente alto, cuando el resto de los registros no presenta ese comportamiento.
 
 ---
@@ -79,7 +77,7 @@
 
 ### Tabla de Métricas Estadísticas (`pm25`)
 
-| Métrica | Datos Originales (Con Outlier) | Datos Limpios (Con NumPy) |
+| Métrica | Datos Originales  | Datos Limpios (Con NumPy) |
 | :--- | :---: | :---: |
 | **Media** | $1381.09\ \mu g/m^3$ | **$19.20\ \mu g/m^3$** |
 | **Mediana** | $20.00\ \mu g/m^3$ | **$19.50\ \mu g/m^3$** |
@@ -91,7 +89,6 @@
 * **¿El promedio es representativo de los datos? ¿Por qué sí o por qué no? Justifique con números.**  
  
   * Sí, el promedio es representativo de los datos después de corregir el valor atípico de 15.000 µg/m³. El promedio obtenido es de 19,20 µg/m³, muy cercano a la mediana de 19,50 µg/m³. Además, la desviación estándar es de 3,68 µg/m³, lo que indica que los valores no presentan una variación muy grande respecto al promedio.
-  * 
   * Por lo tanto, los resultados muestran que 19,20 µg/m³ es un valor que representa adecuadamente el comportamiento general de las mediciones, una vez corregido el dato atípico.
 
 ---
@@ -126,7 +123,6 @@
   Existe una correlación positiva moderada entre la temperatura y la concentración de PM2.5. Esto significa que, en estos datos, cuando aumenta la temperatura, los valores de PM2.5 tienden también a aumentar. Sin embargo, correlación no significa causalidad. Con este análisis no podemos afirmar que el aumento de temperatura sea directamente responsable del aumento de PM2.5.
 * **¿Qué historia cuentan los datos sobre la problemática de Cartago?**  
   Los datos analizados muestran que, después de corregir el valor atípico, la concentración promedio de PM2.5 fue de 19,20 µg/m³, y la mayoría de los registros se mantuvo en un rango relativamente cercano. Esto sugiere que en el período y los datos analizados no se observa un comportamiento extremo o sostenido de contaminación.  
-  
   Además, el análisis evidencia la importancia de verificar la calidad de los datos antes de sacar conclusiones, ya que un solo registro anormal podía cambiar significativamente los resultados.
 * **¿Qué patrones o tendencias no son evidentes a simple vista?**  
   A simple vista, el valor de 15.000 µg/m³ registrado el 4 de enero de 2026 podría interpretarse como un evento extremo de contaminación. Sin embargo, al comparar este registro con el resto de los datos, se encontró que era muy diferente al comportamiento general. Por esta razón, se identificó como un posible error de medición o registro y se corrigió antes de realizar el análisis estadístico.
@@ -148,6 +144,11 @@
 ## 8. Limitaciones
 
 * **¿Qué limitaciones tienen estos datos para tomar decisiones?**  
-  El periodo de monitoreo es muy reducido (únicamente 12 días), lo que impide evaluar la estacionalidad anual o el impacto en épocas de lluvias vs sequías.
+  El principal límite es que el conjunto de datos contiene solamente 12 días de monitoreo. Este período es demasiado corto para identificar comportamientos que puedan variar durante el año, como cambios entre temporadas de lluvia y períodos secos.
+  Por eso, los resultados permiten describir el comportamiento observado durante esos 12 días, pero no son suficientes para representar por completo la calidad del aire de Cartago durante todo el año.
 * **¿Qué datos adicionales necesitaría para hacer un análisis más completo?**  
-  Se requerirían variables meteorológicas de velocidad y dirección del viento, precipitación pluvial diaria y volumen de tráfico vehicular en Cartago.
+  Para complementar el análisis sería útil contar con:
+  * Velocidad y dirección del viento, para analizar cómo se dispersan las partículas.
+  * Precipitación diaria, para comparar los niveles de PM2.5 entre períodos secos y lluviosos.
+  * Volumen de tráfico vehicular, para estudiar si existe alguna relación entre el tránsito y la concentración de partículas.
+  * Un período de monitoreo más largo, idealmente con datos de diferentes épocas del año.
